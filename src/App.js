@@ -1,12 +1,25 @@
 import React from "react";
 import "./App.css";
+import { Route, Switch, Redirect } from "react-router-dom";
 
+// import NavBar from "./components/navBar";
 import VehicleInfoSignals from "./components/vehicleInfoSignals";
+import SignalForm from "./components/signalForm";
+import NotFound from "./components/notFound";
 
 function App() {
   return (
     <React.Fragment>
-      <VehicleInfoSignals />
+      {/* <NavBar /> */}
+      <main className="container">
+        <Switch>
+          <Route path="/vehicleSignals/:id" component={SignalForm}></Route>
+          <Route path="/vehicleSignals" component={VehicleInfoSignals}></Route>
+          <Route path="/not-found" component={NotFound}></Route>
+          <Redirect from="/" exact to="/vehicleSignals" />
+          {/* <Redirect to="not-found" /> */}
+        </Switch>
+      </main>
     </React.Fragment>
   );
 }

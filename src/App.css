@@ -37,3 +37,8 @@
     transform: translateY(0px);
   }
 }
+
+.formField {
+  overflow: hidden;
+  margin: 10px 0;
+}
